@@ -54,9 +54,11 @@
 </head>
 <body>
     <nav>
-        <a href="{{ url_for('index') }}">FlaskApp</a>
-        <a href="#">Create</a>
-        <a href="#">About</a>
+        {% with url = url_for('index') %}
+        <a href="{{ url }}">FlaskApp</a>
+    {% endwith %}
+    <a href="#">Create</a>
+    <a href="#">About</a>
     </nav>
     <hr>
     <div class="content">

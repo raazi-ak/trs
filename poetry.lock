@@ -106,6 +106,27 @@ async = ["asgiref (>=3.2)"]
 dotenv = ["python-dotenv"]
 
 [[package]]
+name = "flask-marshmallow"
+version = "1.2.1"
+description = "Flask + marshmallow for beautiful APIs"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "flask_marshmallow-1.2.1-py3-none-any.whl", hash = "sha256:10b5048ecfaa26f7c8d0aed7d81083164450e6be8e81c04b3d4a586b3f7b6678"},
+    {file = "flask_marshmallow-1.2.1.tar.gz", hash = "sha256:00ee96399ed664963afff3b5d6ee518640b0f91dbc2aace2b5abcf32f40ef23a"},
+]
+
+[package.dependencies]
+Flask = ">=2.2"
+marshmallow = ">=3.0.0"
+
+[package.extras]
+dev = ["flask-marshmallow[tests]", "pre-commit (>=3.5,<4.0)", "tox"]
+docs = ["Sphinx (==7.2.6)", "marshmallow-sqlalchemy (>=0.19.0)", "sphinx-issues (==4.0.0)"]
+sqlalchemy = ["flask-sqlalchemy (>=3.0.0)", "marshmallow-sqlalchemy (>=0.29.0)"]
+tests = ["flask-marshmallow[sqlalchemy]", "pytest"]
+
+[[package]]
 name = "flask-migrate"
 version = "4.0.7"
 description = "SQLAlchemy database migrations for Flask applications using Alembic."
@@ -344,6 +365,36 @@ files = [
 ]
 
 [[package]]
+name = "marshmallow"
+version = "3.21.1"
+description = "A lightweight library for converting complex datatypes to and from native Python datatypes."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "marshmallow-3.21.1-py3-none-any.whl", hash = "sha256:f085493f79efb0644f270a9bf2892843142d80d7174bbbd2f3713f2a589dc633"},
+    {file = "marshmallow-3.21.1.tar.gz", hash = "sha256:4e65e9e0d80fc9e609574b9983cf32579f305c718afb30d7233ab818571768c3"},
+]
+
+[package.dependencies]
+packaging = ">=17.0"
+
+[package.extras]
+dev = ["marshmallow[tests]", "pre-commit (>=3.5,<4.0)", "tox"]
+docs = ["alabaster (==0.7.16)", "autodocsumm (==0.2.12)", "sphinx (==7.2.6)", "sphinx-issues (==4.0.0)", "sphinx-version-warning (==1.1.2)"]
+tests = ["pytest", "pytz", "simplejson"]
+
+[[package]]
+name = "packaging"
+version = "24.0"
+description = "Core utilities for Python packages"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "packaging-24.0-py3-none-any.whl", hash = "sha256:2ddfb553fdf02fb784c234c7ba6ccc288296ceabec964ad2eae3777778130bc5"},
+    {file = "packaging-24.0.tar.gz", hash = "sha256:eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"},
+]
+
+[[package]]
 name = "python-dateutil"
 version = "2.9.0.post0"
 description = "Extensions to the standard Python datetime module"
@@ -497,4 +548,4 @@ watchdog = ["watchdog (>=2.3)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "cea8c9187a02ecd02fe0b1220e348fdcfa8ce14d51d318f599779cd391a38bb4"
+content-hash = "5c04de7d4dad3fbe5ae5b84c03370d76d22280897a100cd9e93c13c956cd236f"
