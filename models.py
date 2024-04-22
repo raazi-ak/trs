@@ -4,9 +4,11 @@ from .app import app
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import ForeignKey
 from sqlalchemy.sql import func
+from flask_migrate import Migrate
 
 
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 class User(db.Model):
     __tablename__ = "user"
     user_id = db.Column(db.Integer, primary_key = True, autoincrement = True)
