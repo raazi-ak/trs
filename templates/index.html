@@ -1,18 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1 class="title">{% block title %} Users {% endblock %}</h1>
-    <div class="content">
-        {% for user in users %}
-            <div class="user">
-                <p><b>#{{ user.user_id }}</b></p>
-                <b>
-                    <p class="name">{{ user.fname }} {{ user.lname }}</p>
-                </b>
-                <p>{{ user.email }}</p>
-                <p>{{ user.phone_num }}</p>
-            </div>
-          
-        {% endfor %}
-    </div>
+  <h1 class="title">{% block title %} Users {% endblock %}</h1>
+  <div class="content">
+    {% for user in users %}
+      <div class="user">
+        <p><b>#{{ user.user_id }}</b></p>
+        <p class="name">{{ user.fname }} {{ user.lname }}</p>
+        <p>{{ user.email }}</p>
+        <p>{{ user.phone_num }}</p>
+      </div>
+    {% endfor %}
+  </div>
 {% endblock %}

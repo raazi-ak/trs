@@ -1,6 +1,6 @@
-from app import app
-from models import db
-from utils import populateDB
+from .app import app
+from .models import db
+from .utils import populateDB
 
 def initDB():
     app.app_context().push()
