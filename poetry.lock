@@ -277,6 +277,16 @@ MarkupSafe = ">=2.0"
 i18n = ["Babel (>=2.7)"]
 
 [[package]]
+name = "jsonify"
+version = "0.5"
+description = "A csv to json converter"
+optional = false
+python-versions = "*"
+files = [
+    {file = "jsonify-0.5.tar.gz", hash = "sha256:f340032753577575e9777835809b283fdc9b251867d5d5600389131647f8bfe1"},
+]
+
+[[package]]
 name = "mako"
 version = "1.3.3"
 description = "A super-fast templating language that borrows the best ideas from the existing templating languages."
@@ -382,6 +392,26 @@ packaging = ">=17.0"
 dev = ["marshmallow[tests]", "pre-commit (>=3.5,<4.0)", "tox"]
 docs = ["alabaster (==0.7.16)", "autodocsumm (==0.2.12)", "sphinx (==7.2.6)", "sphinx-issues (==4.0.0)", "sphinx-version-warning (==1.1.2)"]
 tests = ["pytest", "pytz", "simplejson"]
+
+[[package]]
+name = "marshmallow-sqlalchemy"
+version = "1.0.0"
+description = "SQLAlchemy integration with the marshmallow (de)serialization library"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "marshmallow_sqlalchemy-1.0.0-py3-none-any.whl", hash = "sha256:f415d57809e3555b6323356589aba91e36e4470f35953d3a10c755ac5c3307df"},
+    {file = "marshmallow_sqlalchemy-1.0.0.tar.gz", hash = "sha256:20a0f2fcdd5bddc86444fa01461f17f9b6a12a8ddd4ca8c9b34fe2f2e35d00a2"},
+]
+
+[package.dependencies]
+marshmallow = ">=3.10.0"
+SQLAlchemy = ">=1.4.40,<3.0"
+
+[package.extras]
+dev = ["marshmallow-sqlalchemy[tests]", "pre-commit (>=3.5,<4.0)", "tox"]
+docs = ["alabaster (==0.7.16)", "sphinx (==7.2.6)", "sphinx-issues (==4.0.0)"]
+tests = ["pytest (<8)", "pytest-lazy-fixture (>=0.6.2)"]
 
 [[package]]
 name = "packaging"
@@ -548,4 +578,4 @@ watchdog = ["watchdog (>=2.3)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "5c04de7d4dad3fbe5ae5b84c03370d76d22280897a100cd9e93c13c956cd236f"
+content-hash = "d91f142eab24a452ded1151eed1ab4a8a66ed7ef84fb66f6f7f4b08ecab8cb84"
