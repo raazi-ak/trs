@@ -63,13 +63,13 @@ def register_user():
     except Exception as e:
         return jsonify({'message': f'Registration failed: {str(e)}'}), 400
     
-@app.route('/users', methods=['GET'])
-def get_all_users():
-    users = User.query.all()
-    user_data = []
-    for user in users:
-        user_data.append({'user_id': user.user_id, 'fname': user.fname, 'lname': user.lname, 'email': user.email})
-    return jsonify(user_data)
+#@app.route('/users', methods=['GET'])
+#def get_all_users():
+#    users = User.query.all()
+#    user_data = []
+#    for user in users:
+#        user_data.append({'user_id': user.user_id, 'fname': user.fname, 'lname': user.lname, 'email': user.email})
+#    return jsonify(user_data)
 @app.route('/users/get', methods = ['GET'])
 @jwt_required()
 #protected route
