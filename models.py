@@ -40,11 +40,22 @@ class Admin(UserMixin, db.Model):
     emp_id = db.Column(db.Integer, primary_key = True, autoincrement = True)
     fname= db.Column(db.String(100), nullable = False)
     lname = db.Column(db.String(100), nullable = False)
-    email = db.Column(db.String(100), nullable = False)
-    pswd = db.Column(db.String(100), nullable = False)
+    email = db.Column(db.String(100), unique = True,nullable = False)
+    pwd_hash = db.Column(db.String(128))
     phone_num = db.Column(db.String(13), nullable = False)
     dept = db.Column(db.String(25), nullable = False)
     tickets = db.relationship('Ticket', backref= 'assigned_to_admin', foreign_keys='Ticket.assigned_to')
+    @property
+    def password(self):
+        raise AttributeError("Password is not a readable attribute.")
+    @password.setter
+    def password(self, password):
+        self.pwd_hash = hashlib.sha256(password.encode('utf-8')).hexdigest()
+    def verify_password(self, password):
+        return hashlib.sha256(password.encode('utf-8')).hexdigest() == self.pwd_hash
+    
+    def get_id(self):
+        return str(self.emp_id)
 
     def __repr__(self):
         return f'<Admin {self.email}>'

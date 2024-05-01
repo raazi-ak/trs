@@ -26,7 +26,7 @@ admins_schema  = AdminSchema(many=True)
 
 class TicketSchema(marshmallow.Schema):
     class Meta():
-        fields = ("tikcet_id", "title", "body", "raised_by", "assigned_to", "created_at")
+        fields = ("ticket_id", "title", "body", "raised_by", "assigned_to", "created_at")
         model  = Ticket
 ticket_schema = TicketSchema()
 tickets_schema  = TicketSchema(many=True)
