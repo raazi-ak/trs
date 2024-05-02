@@ -1,5 +1,5 @@
-from .app import app
-from .models import db
+from app import app
+from models import db
 
 
 def initDB():

@@ -1,7 +1,7 @@
 
 
 from flask_login import UserMixin
-from .app import app
+from app import app
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import ForeignKey
 from sqlalchemy.sql import func

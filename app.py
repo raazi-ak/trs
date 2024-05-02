@@ -30,7 +30,7 @@ swagger_ui_blueprint = get_swaggerui_blueprint(
     }
 )
 app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
-from .models import db
+from models import db
 
 def initDB():
     app.app_context().push()
@@ -39,12 +39,12 @@ def initDB():
 
 initDB()
 
-from .views import home
-from .user_login import register_user
-from .user_login import login_user
-from .user_login import get_cuser
-from .admin_login import get_cadmin
-from .admin_login import login_admin
-from .admin_login import register_admin
-from .ticket_view import create_ticket
-from .ticket_view import get_tickets
+from views import home
+from user_login import register_user
+from user_login import login_user
+from user_login import get_cuser
+from admin_login import get_cadmin
+from admin_login import login_admin
+from admin_login import register_admin
+from ticket_view import create_ticket
+from ticket_view import get_tickets

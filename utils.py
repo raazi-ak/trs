@@ -1,7 +1,7 @@
-from .models import User
-from .models import Admin
-from .models import Ticket
-from .models import db
+from models import User
+from models import Admin
+from models import Ticket
+from models import db
 from flask import Flask, render_template, request, url_for
 from flask_sqlalchemy import SQLAlchemy
 from faker import Faker

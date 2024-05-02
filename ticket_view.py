@@ -1,17 +1,17 @@
 import random
 from flask import jsonify, request
 from flask_login import LoginManager
-from .models import Admin, Ticket
-from .models import db
-from .app import app
-from .app import jwt
+from models import Admin, Ticket
+from models import db
+from app import app
+from app import jwt
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_restful import Resource, Api, reqparse
 from flask_login import LoginManager, UserMixin, login_user, login_required
-from .response_schema import ticket_schema
-from .response_schema import tickets_schema
+from response_schema import ticket_schema
+from response_schema import tickets_schema
 #Create a new ticket
 @app.route('/tickets/create', methods = ['POST'])
 @jwt_required()

@@ -1,9 +1,9 @@
 
-from .app import app
+from app import app
 from flask_marshmallow import Marshmallow
-from .models import User
-from .models import Admin
-from .models import Ticket
+from models import User
+from models import Admin
+from models import Ticket
 from flask_marshmallow import fields
 
 marshmallow  =Marshmallow(app)
