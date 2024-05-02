@@ -17,7 +17,6 @@ jwt = JWTManager(app)
 app.config['SQLALCHEMY_DATABASE_URI']=\
             'sqlite:///' + os.path.join(basedir, 'database.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SERVER_NAME'] = '127.0.0.1:5000'
 app.config['SECRET_KEY'] = '$SECRET_KEY'
 app.config['JWT_SECRET_KEY'] = '$JWT_SECRET_KEY'
 SWAGGER_URL="/swagger"
