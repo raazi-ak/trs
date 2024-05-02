@@ -19,6 +19,8 @@ marshmallow-sqlalchemy = "^1.0.0"
 flask-login = "^0.6.3"
 flask-jwt-extended = "^4.6.0"
 flask-swagger-ui = "^4.11.1"
+waitress = "^3.0.0"
+gunicorn = "^22.0.0"
 
 
 
