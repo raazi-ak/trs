@@ -3,6 +3,9 @@ import os
 from flask import Flask, render_template, render_template_string, request, url_for
 from flask_restful import Api
 from flask_jwt_extended import JWTManager
+from flask_swagger_ui import get_swaggerui_blueprint
+
+
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -17,6 +20,17 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SERVER_NAME'] = '127.0.0.1:5000'
 app.config['SECRET_KEY'] = 'gnKRCJ3jmXqHiIcKHrGkByfReiyQTVP7'
 app.config['JWT_SECRET_KEY'] = 'gnKRCJ3jmXqHiIcKHrGkByfReiyQTVP7'
+SWAGGER_URL="/swagger"
+API_URL="/static/swagger.yaml"
+
+swagger_ui_blueprint = get_swaggerui_blueprint(
+    SWAGGER_URL,
+    API_URL,
+    config={
+        'app_name': 'Access API'
+    }
+)
+app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
 from .models import db
 
 def initDB():

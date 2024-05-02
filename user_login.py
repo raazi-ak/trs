@@ -70,17 +70,19 @@ def register_user():
 #    for user in users:
 #        user_data.append({'user_id': user.user_id, 'fname': user.fname, 'lname': user.lname, 'email': user.email})
 #    return jsonify(user_data)
-@app.route('/users/get', methods = ['GET'])
+@app.route('/users', methods = ['GET'])
 @jwt_required()
 #protected route
 def get_cuser():
     identity = get_jwt_identity()
     type = identity['user_type']
     if not  type == 'user':
-        return jsonify({'message': 'not authorised'})
+        return jsonify({'message': 'Unauthorised Access'}), 401 
 
     user_id = identity['user_id']
     user = User.query.get(user_id)
+    if not user:
+        return jsonify({"message":"User not found"}), 400
 
     
     

@@ -1,0 +1,37 @@
+openapi: 3.0.0
+info:
+  title: TRS API
+  description: A simple api to perform CRUD on TRS DB.
+  version: 0.1.9
+
+servers:
+  - url: http://api.example.com/v1
+    description: Optional server description, e.g. Main (production) server
+  - url: http://staging-api.example.com
+    description: Optional server description, e.g. Internal staging server for testing
+
+paths:
+  /:
+    get:
+      summary: Returns a hello world page
+      responses:
+      "200":
+        description: An HTML page
+        content:
+          text/html:
+            schema:
+              type: html
+
+  /users:
+    get:
+      summary: Returns a the current user based on JWT bearer.
+      description: Optional extended description in CommonMark or HTML.
+      responses:
+        "200": # status code
+          description: A JSON of user object type
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  type: string
