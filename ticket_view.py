@@ -36,7 +36,7 @@ def create_ticket():
     ticket_data  = ticket_schema.dump(ticket)
     return jsonify(ticket_data), 200
 #Fetch existing tickets by user or emp id
-@app.route('/tickets/get/byuser', methods = ['GET'])
+@app.route('/tickets/get/bytoken', methods = ['GET'])
 @jwt_required()
 def get_tickets():
     identity = get_jwt_identity()

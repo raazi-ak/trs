@@ -5,33 +5,423 @@ info:
   version: 0.1.9
 
 servers:
-  - url: http://api.example.com/v1
-    description: Optional server description, e.g. Main (production) server
-  - url: http://staging-api.example.com
-    description: Optional server description, e.g. Internal staging server for testing
+  - url: https://ticket-review-system-flask.onrender.com/
+    description: Production Server
+  - url: http://127.0.0.1:5000/
+    description: Local Test Server
 
 paths:
   /:
     get:
       summary: Returns a hello world page
       responses:
-      "200":
-        description: An HTML page
-        content:
-          text/html:
-            schema:
-              type: html
+        "200":
+          description: An HTML page
+          content:
+            text/html:
+              schema:
+                type: html
 
   /users:
+    description: Fetch logged in user
     get:
       summary: Returns a the current user based on JWT bearer.
       description: Optional extended description in CommonMark or HTML.
+      security:
+        - BearerAuth: []
       responses:
-        "200": # status code
-          description: A JSON of user object type
+        "200":
+          description: OK
           content:
             application/json:
               schema:
                 type: object
-                items:
+                properties:
+                  user_id:
+                    type: int
+                  fname:
+                    type: string
+                  lname:
+                    type: string
+                  email:
+                    type: string
+                  phone_num:
+                    type: string
+              example:
+                user_id: 01
+                fname: FIRST
+                lname: LAST
+                email: example@email.com
+                phone_num: 00000000000
+        "401":
+          description: BAD REQUEST
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: Missing Authorization Header
+  /users/login:
+    description: Login schema for user
+    post:
+      summary: Returns a JSON object if authenticated
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/login"
+
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/login_success"
+              example:
+                access_token: string
+                account_type: user
+                message: User logged in successfully.
+        "400":
+          description: BAD REQUEST
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: Invalid field entries
+        "401":
+          description: UNAUTHORISED
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              examples:
+                user_not_found:
+                  value:
+                    message: User does not exist
+                invalid_credentials:
+                  value:
+                    message: Invalid credentials
+  /users/register:
+    description: Register Schema for User
+    post:
+      summary: Returns a JSON object if successful
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/register_user"
+
+      responses:
+        "400":
+          description: BAD REQUEST
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              examples:
+                fields:
+                  value:
+                    message: Missing required fields
+                email_exists:
+                  value:
+                    message: Email already exists
+                reg_failed:
+                  value:
+                    message: Registration failed
+
+        "201":
+          description: SUCCESS
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: User created successfully
+  /admins:
+    description: Fetch logged in admin
+    get:
+      summary: Returns a the current admin based on JWT bearer.
+      description: Optional extended description in CommonMark or HTML.
+      security:
+        - BearerAuth: []
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user_id:
+                    type: int
+                  fname:
+                    type: string
+                  lname:
+                    type: string
+                  email:
+                    type: string
+                  phone_num:
+                    type: string
+                  dept:
+                    type: string
+              example:
+                user_id: 01
+                fname: FIRST
+                lname: LAST
+                email: example@email.com
+                phone_num: 00000000000
+                dept: Sales
+        "401":
+          description: BAD REQUEST
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              example:
+                message: Missing Authorization Header
+  /admins/login:
+    description: Login for admin users
+    post:
+      summary: Authenticates an admin and returns JWT access token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/admin_login"
+      responses:
+        "200":
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                  message:
+                    type: string
+                  account_type:
+                    type: string
+                example:
+                  access_token: "your_jwt_token_here"
+                  message: "logged in successfully"
+                  account_type: "admin"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                example:
+                  message: Missing required fields
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              examples:
+                admin_not_found:
+                  value:
+                    message: Admin does not exist
+                invalid_credentials:
+                  value:
+                    message: Invalid credentials
+  /admins/register:
+    description: Register a new admin user
+    post:
+      summary: Creates a new admin user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/register_admin"
+      responses:
+        "201":
+          description: Admin created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                example:
+                  message: "Admin created successfully"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              examples:
+                missing_fields:
+                  value:
+                    message: Missing required fields
+                email_exists:
+                  value:
+                    message: Email already exists
+                reg_failed:
+                  value:
+                    message: Registration failed
+  /tickets/get/bytoken:
+    description: Fetch ticket details by JWT bearer
+    get:
+      summary: Returns an array of ticket objects based on Bearer.
+      security:
+        - BearerAuth: []
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                properties:
+                  $ref: "#/components/schemas/ticket"
+                example:
+                  ticket_id: 01
+                  title: title
+                  body: lorem ipsum sit dolor ...
+                  raised_by: 01
+                  assigned_to: 01
+                  crated_at: date
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    login:
+      summary: a model of user/admin login
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+    register_user:
+      summary: a model of user register
+      type: object
+      properties:
+        fname:
+          type: string
+        lname:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        phone_num:
+          type: string
+
+    login_success:
+      value:
+        access_token:
+          type: string
+        message:
+          type: string
+        user_type:
+          type: string
+    admin_login:
+      summary: Admin login schema
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+    register_admin:
+      summary: Admin registration schema
+      type: object
+      properties:
+        fname:
+          type: string
+        lname:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        phone_num:
+          type: string
+        dept:
+          type: string
+
+    ticket:
+      summary: Ticket Retrieval Model
+      type: object
+      properties:
+        ticket_id:
+          type: int
+        title:
+          type: string
+        body:
+          type: string
+        raised_by:
+          type: int
+        assigned_to:
+          type: int
+        created_at:
+          type: string
+    responses:
+      badRequest:
+        description: Bad request error
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+      unauthorized:
+        description: Unauthorized access
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+      forbidden:
+        description: Forbidden operation
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
                   type: string
