@@ -4,21 +4,23 @@ from flask import Flask, render_template, render_template_string, request, url_f
 from flask_restful import Api
 from flask_jwt_extended import JWTManager
 from flask_swagger_ui import get_swaggerui_blueprint
+from datetime import timedelta
 
 
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-app =  Flask(__name__)
-api = Api(app)
-jwt = JWTManager(app)
 
+app =  Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI']=\
             'sqlite:///' + os.path.join(basedir, 'database.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = '$SECRET_KEY'
 app.config['JWT_SECRET_KEY'] = '$JWT_SECRET_KEY'
+app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=24)
+api = Api(app)
+jwt = JWTManager(app)
 SWAGGER_URL="/swagger"
 API_URL="/static/swagger.yaml"
 
