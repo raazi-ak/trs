@@ -51,7 +51,7 @@ def solcastMock():
             },
             {
                 "pv_estimate": 3.416,
-                "period_end": "2024-06-24T10:00:00.00000eez",
+                "period_end": "2024-06-24T10:00:00.0000000Z",
                 "period": "PT30M"
             }
         ]
