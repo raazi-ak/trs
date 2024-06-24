@@ -28,7 +28,7 @@ def solcastMock():
     loss_factor = request.args.get('loss_factor', '0.90')
     format = request.args.get('format', 'json')
 
-    if not latitude or longitude or period or capacity or azimuth or tilt:
+    if not latitude or longitude or capacity or azimuth or tilt:
         return jsonify({"error": "missing parameters"}), 422
 
     # Mock response mimicking Solcast API response
