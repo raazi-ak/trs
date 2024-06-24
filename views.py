@@ -23,27 +23,30 @@ def solcastMock():
     period = request.args.get('period', 'PT30M')
     output_parameters = request.args.get('output_parameters', 'pv_power_rooftop')
     capacity = request.args.get('capacity')
-    azimuth = request.args.get('azimuth', '0')
-    tilt = request.args.get('tilt', '23')
+    azimuth = request.args.get('azimuth')
+    tilt = request.args.get('tilt')
     loss_factor = request.args.get('loss_factor', '0.90')
     format = request.args.get('format', 'json')
+
+    if not latitude or longitude or hours or period or capacity or azimuth or tilt:
+        return jsonify({"error": "missing parameters"}), 422
 
     # Mock response mimicking Solcast API response
     mock_response = {
         "forecasts": [
             {
                 "pv_estimate": 2.652,
-                "period_end": "2024-06-24T08:30:00.00000002",
+                "period_end": "2024-06-24T08:30:00.0000000Z",
                 "period": "PT30M"
             },
             {
                 "pv_estimate": 2.962,
-                "period_end": "2024-06-24T09:00:00.00eeeeez",
+                "period_end": "2024-06-24T09:00:00.0000000Z",
                 "period": "PT30M"
             },
             {
                 "pv_estimate": 3.217,
-                "period_end": "2024-06-24T09:38:00.00000eez",
+                "period_end": "2024-06-24T09:38:00.0000000Z",
                 "period": "PT30M"
             },
             {
