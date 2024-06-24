@@ -49,7 +49,7 @@ from admin_login import login_admin
 from admin_login import register_admin
 from ticket_view import create_ticket
 from ticket_view import get_tickets
-
+from views import solcastMock
 
 if __name__ == '__main__':
   initDB() 

@@ -7,3 +7,51 @@ from flask import Flask, jsonify, render_template, request, url_for
 def home():
     return '<h1>Hello, World!</h1>'
 
+API_KEY = "S1sr7CjdRJLHTSdbHzA7GyWBGVDLJf-d"
+
+@app.route('/api/restricted/solcastMock/', methods=['GET'])
+def solcastMock():
+    # Check for API key in the request headers
+    api_key = request.headers.get('Authorization')
+    if not api_key or api_key != f"Bearer {API_KEY}":
+        return jsonify({"error": "Unauthorized"}), 401
+
+    # Extract query parameters
+    latitude = request.args.get('latitude')
+    longitude = request.args.get('longitude')
+    hours = request.args.get('hours', '48')
+    period = request.args.get('period', 'PT30M')
+    output_parameters = request.args.get('output_parameters', 'pv_power_rooftop')
+    capacity = request.args.get('capacity')
+    azimuth = request.args.get('azimuth', '0')
+    tilt = request.args.get('tilt', '23')
+    loss_factor = request.args.get('loss_factor', '0.90')
+    format = request.args.get('format', 'json')
+
+    # Mock response mimicking Solcast API response
+    mock_response = {
+        "forecasts": [
+            {
+                "pv_estimate": 2.652,
+                "period_end": "2024-06-24T08:30:00.00000002",
+                "period": "PT30M"
+            },
+            {
+                "pv_estimate": 2.962,
+                "period_end": "2024-06-24T09:00:00.00eeeeez",
+                "period": "PT30M"
+            },
+            {
+                "pv_estimate": 3.217,
+                "period_end": "2024-06-24T09:38:00.00000eez",
+                "period": "PT30M"
+            },
+            {
+                "pv_estimate": 3.416,
+                "period_end": "2024-06-24T10:00:00.00000eez",
+                "period": "PT30M"
+            }
+        ]
+    }
+    
+    return jsonify(mock_response)
