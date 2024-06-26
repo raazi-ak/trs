@@ -36,233 +36,252 @@ def solcastMock():
     mock_response = {
     "forecasts": [
         {
-            "pv_estimate": 4.657,
-            "period_end": "2024-06-25T10:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 5.119,
-            "period_end": "2024-06-25T11:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 0.855,
-            "period_end": "2024-06-25T12:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 0,
-            "period_end": "2024-06-25T13:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 0,
-            "period_end": "2024-06-25T14:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 0,
-            "period_end": "2024-06-25T15:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 0,
-            "period_end": "2024-06-25T16:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 0,
-            "period_end": "2024-06-25T17:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 0,
-            "period_end": "2024-06-25T18:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 0,
-            "period_end": "2024-06-25T19:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 0,
-            "period_end": "2024-06-25T20:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 0,
-            "period_end": "2024-06-25T21:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 0,
-            "period_end": "2024-06-25T22:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 0,
-            "period_end": "2024-06-25T23:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 0,
-            "period_end": "2024-06-26T00:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 0.973,
-            "period_end": "2024-06-26T01:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 4.071,
-            "period_end": "2024-06-26T02:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 7.2,
-            "period_end": "2024-06-26T03:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 9.996,
-            "period_end": "2024-06-26T04:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 8.424,
-            "period_end": "2024-06-26T05:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 5.074,
-            "period_end": "2024-06-26T06:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 1.126,
-            "period_end": "2024-06-26T07:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 0,
-            "period_end": "2024-06-26T08:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 0,
-            "period_end": "2024-06-26T09:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 0,
-            "period_end": "2024-06-26T10:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 0,
-            "period_end": "2024-06-26T11:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 0,
-            "period_end": "2024-06-26T12:00:00.0000000Z",
-            "period": "PT1H"
-        },
-        {
-            "pv_estimate": 0,
+            "pv_power_rooftop": 19.241,
             "period_end": "2024-06-26T13:00:00.0000000Z",
             "period": "PT1H"
         },
         {
-            "pv_estimate": 0,
+            "pv_power_rooftop": 18.692,
             "period_end": "2024-06-26T14:00:00.0000000Z",
             "period": "PT1H"
         },
         {
-            "pv_estimate": 0,
+            "pv_power_rooftop": 15.597,
             "period_end": "2024-06-26T15:00:00.0000000Z",
             "period": "PT1H"
         },
         {
-            "pv_estimate": 0,
+            "pv_power_rooftop": 10.575,
             "period_end": "2024-06-26T16:00:00.0000000Z",
             "period": "PT1H"
         },
         {
-            "pv_estimate": 0,
+            "pv_power_rooftop": 7.377,
             "period_end": "2024-06-26T17:00:00.0000000Z",
             "period": "PT1H"
         },
         {
-            "pv_estimate": 0,
+            "pv_power_rooftop": 4.24,
             "period_end": "2024-06-26T18:00:00.0000000Z",
             "period": "PT1H"
         },
         {
-            "pv_estimate": 0,
+            "pv_power_rooftop": 1.802,
             "period_end": "2024-06-26T19:00:00.0000000Z",
             "period": "PT1H"
         },
         {
-            "pv_estimate": 0,
+            "pv_power_rooftop": 0.537,
             "period_end": "2024-06-26T20:00:00.0000000Z",
             "period": "PT1H"
         },
         {
-            "pv_estimate": 0,
+            "pv_power_rooftop": 0,
             "period_end": "2024-06-26T21:00:00.0000000Z",
             "period": "PT1H"
         },
         {
-            "pv_estimate": 0,
+            "pv_power_rooftop": 0,
             "period_end": "2024-06-26T22:00:00.0000000Z",
             "period": "PT1H"
         },
         {
-            "pv_estimate": 0,
+            "pv_power_rooftop": 0,
             "period_end": "2024-06-26T23:00:00.0000000Z",
             "period": "PT1H"
         },
         {
-            "pv_estimate": 0,
+            "pv_power_rooftop": 0,
             "period_end": "2024-06-27T00:00:00.0000000Z",
             "period": "PT1H"
         },
         {
-            "pv_estimate": 0.875,
+            "pv_power_rooftop": 0,
             "period_end": "2024-06-27T01:00:00.0000000Z",
             "period": "PT1H"
         },
         {
-            "pv_estimate": 2.496,
+            "pv_power_rooftop": 0,
             "period_end": "2024-06-27T02:00:00.0000000Z",
             "period": "PT1H"
         },
         {
-            "pv_estimate": 6.071,
+            "pv_power_rooftop": 0,
             "period_end": "2024-06-27T03:00:00.0000000Z",
             "period": "PT1H"
         },
         {
-            "pv_estimate": 7.899,
+            "pv_power_rooftop": 0,
             "period_end": "2024-06-27T04:00:00.0000000Z",
             "period": "PT1H"
         },
         {
-            "pv_estimate": 8.424,
+            "pv_power_rooftop": 0.381,
             "period_end": "2024-06-27T05:00:00.0000000Z",
             "period": "PT1H"
         },
         {
-            "pv_estimate": 0,
+            "pv_power_rooftop": 3.561,
             "period_end": "2024-06-27T06:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 5.701,
+            "period_end": "2024-06-27T07:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 5.899,
+            "period_end": "2024-06-27T08:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 9.217,
+            "period_end": "2024-06-27T09:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 13.45,
+            "period_end": "2024-06-27T10:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 15.297,
+            "period_end": "2024-06-27T11:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 16.589,
+            "period_end": "2024-06-27T12:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 17.292,
+            "period_end": "2024-06-27T13:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 17.025,
+            "period_end": "2024-06-27T14:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 14.823,
+            "period_end": "2024-06-27T15:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 12.021,
+            "period_end": "2024-06-27T16:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 8.437,
+            "period_end": "2024-06-27T17:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 3.721,
+            "period_end": "2024-06-27T18:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 0.509,
+            "period_end": "2024-06-27T19:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 0.177,
+            "period_end": "2024-06-27T20:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 0,
+            "period_end": "2024-06-27T21:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 0,
+            "period_end": "2024-06-27T22:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 0,
+            "period_end": "2024-06-27T23:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 0,
+            "period_end": "2024-06-28T00:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 0,
+            "period_end": "2024-06-28T01:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 0,
+            "period_end": "2024-06-28T02:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 0,
+            "period_end": "2024-06-28T03:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 0,
+            "period_end": "2024-06-28T04:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 0.811,
+            "period_end": "2024-06-28T05:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 5.087,
+            "period_end": "2024-06-28T06:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 9.795,
+            "period_end": "2024-06-28T07:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 13.472,
+            "period_end": "2024-06-28T08:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 16.358,
+            "period_end": "2024-06-28T09:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 18.133,
+            "period_end": "2024-06-28T10:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 18.552,
+            "period_end": "2024-06-28T11:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 18.513,
+            "period_end": "2024-06-28T12:00:00.0000000Z",
+            "period": "PT1H"
+        },
+        {
+            "pv_power_rooftop": 18.707,
+            "period_end": "2024-06-28T13:00:00.0000000Z",
             "period": "PT1H"
         }
     ]
 }
-
 
     
     return jsonify(mock_response)
